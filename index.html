@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Clicker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <main class="left-panel">
+            <div class="header">
+                <h1>Cat Clicker</h1>
+                <div class="stats">
+                    <p id="cat-count">0</p>
+                    <span>cats</span>
+                </div>
+                <div class="cps-display">per second: <span id="cps-count">0</span></div>
+            </div>
+            
+            <div class="cat-container">
+                <button id="main-cat-btn" class="main-cat-btn">
+                    <img src="assets/cat.png" alt="Big Cat" id="main-cat-img" draggable="false">
+                </button>
+            </div>
+        </main>
+
+        <aside class="right-panel">
+            <nav class="tabs">
+                <button class="tab-btn active" data-target="tab-store">Store</button>
+                <button class="tab-btn" data-target="tab-stats">Stats</button>
+                <button class="tab-btn" data-target="tab-gamble">Gamble</button>
+                <button class="tab-btn" data-target="tab-minigame">Minigame</button>
+            </nav>
+
+            <div class="tab-content active" id="tab-store">
+                <h2>Store</h2>
+                <div class="store-items">
+                    <button id="buy-farm-btn" class="store-item" disabled>
+                        <div class="item-icon">
+                            <img src="assets/cat.png" alt="Farm" draggable="false">
+                        </div>
+                        <div class="item-details">
+                            <h3>Cat Farm</h3>
+                            <p>Produces <span id="farm-production-rate">1</span> cps</p>
+                        </div>
+                        <div class="item-cost">
+                            Cost: <span id="farm-cost">15</span>
+                        </div>
+                        <div class="item-count" id="farm-count">0</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-stats">
+                <h2>Statistics</h2>
+                <div class="stats-panel">
+                    <div class="stat-item">
+                        <span>Total Clicks:</span> <strong id="stat-clicks">0</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Total Cats Earned:</span> <strong id="stat-total-cats">0</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Time Played:</span> <strong id="stat-time">0s</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Farms Owned:</span> <strong id="stat-farms">0</strong>
+                    </div>
+                    <div class="stat-actions">
+                        <button id="save-btn" class="action-btn">Manual Save</button>
+                        <button id="wipe-btn" class="action-btn danger">Wipe Save</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-gamble">
+                <h2>Gambling</h2>
+                <div class="gamble-panel">
+                    <p>Wager your cats! 50% chance to double your wager, 50% chance to lose it all.</p>
+                    <div class="gamble-input-group">
+                        <input type="number" id="wager-input" placeholder="Enter amount" min="1">
+                        <div class="gamble-controls">
+                            <button id="btn-wager-half" class="action-btn small">Half</button>
+                            <button id="btn-wager-max" class="action-btn small">Max</button>
+                        </div>
+                    </div>
+                    <button id="flip-coin-btn" class="action-btn block">Flip Coin!</button>
+                    <div id="gamble-result" class="gamble-result"></div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-minigame">
+                <h2>Catch the Mouse</h2>
+                <div class="minigame-panel">
+                    <p>Click the mouse when it appears for a bonus!</p>
+                    <div class="minigame-area" id="minigame-area">
+                        <button id="mouse-btn" class="mouse-btn hidden">
+                            🐁
+                        </button>
+                    </div>
+                    <p class="minigame-info">Bonus awarded: <span id="minigame-bonus">10</span> cats</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
